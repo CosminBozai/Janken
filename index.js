@@ -1,14 +1,15 @@
 const computerOptions = ["rock", "paper", "scissors"];
 
-let computerSelection =
-  computerOptions[Math.floor(Math.random(computerOptions) * 3)];
-console.log(computerSelection);
-
-let playerSelection = prompt().toLowerCase();
-console.log(playerSelection);
+let computerSelection;
+let playerSelection;
 
 //Play one round
 function playRound(playerSelection, computerSelection) {
+  computerSelection =
+    computerOptions[Math.floor(Math.random(computerOptions) * 3)];
+  console.log(computerSelection);
+  playerSelection = prompt().toLowerCase();
+  console.log(playerSelection);
   if (playerSelection === computerSelection) {
     console.log("Tie");
   } else if (playerSelection == "rock") {
@@ -32,4 +33,10 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-playRound(playerSelection, computerSelection);
+//Function that keeps the game running for a number of rounds
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playRound(playerSelection, computerSelection);
+  }
+}
+game();
