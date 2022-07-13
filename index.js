@@ -26,31 +26,37 @@ function playRound(playerSelection) {
     computerOptions[Math.floor(Math.random(computerOptions) * 3)];
   console.log(playerSelection);
   console.log(computerSelection);
+
   if (playerSelection === computerSelection) {
-    console.log("Tie");
   } else if (playerSelection == "rock") {
     if (computerSelection == "paper") {
-      console.log("You lose");
       computerScore++;
     } else {
-      console.log("You win");
       playerScore++;
     }
   } else if (playerSelection == "paper") {
     if (computerSelection == "scissors") {
-      console.log("You lose");
       computerScore++;
     } else {
-      console.log("You win");
       playerScore++;
     }
   } else if (playerSelection == "scissors") {
     if (computerSelection == "rock") {
-      console.log("You lose");
       computerScore++;
     } else {
-      console.log("You win");
       playerScore++;
     }
   }
+  if (computerScore === 5) {
+    computerScore = 0;
+    playerScore = 0;
+    document.getElementById("winner").textContent = "You lose!";
+  }
+  if (playerScore === 5) {
+    computerScore = 0;
+    playerScore = 0;
+    document.getElementById("winner").textContent = "You win!";
+  }
+  document.getElementById("player-score").textContent = playerScore;
+  document.getElementById("computer-score").textContent = computerScore;
 }
