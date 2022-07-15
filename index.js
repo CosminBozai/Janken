@@ -26,26 +26,15 @@ function playRound(playerSelection) {
     computerOptions[Math.floor(Math.random(computerOptions) * 3)];
   console.log(playerSelection);
   console.log(computerSelection);
-
-  if (playerSelection === computerSelection) {
-  } else if (playerSelection == "rock") {
-    if (computerSelection == "paper") {
-      computerScore++;
-    } else {
-      playerScore++;
-    }
-  } else if (playerSelection == "paper") {
-    if (computerSelection == "scissors") {
-      computerScore++;
-    } else {
-      playerScore++;
-    }
-  } else if (playerSelection == "scissors") {
-    if (computerSelection == "rock") {
-      computerScore++;
-    } else {
-      playerScore++;
-    }
+  if (playerSelection == computerSelection) {
+  } else if (
+    (playerSelection == "rock" && computerSelection == "scissors") ||
+    (playerSelection == "paper" && computerSelection == "rock") ||
+    (playerSelection == "scissors" && computerSelection == "paper")
+  ) {
+    playerScore++;
+  } else {
+    computerScore++;
   }
   if (computerScore === 5) {
     computerScore = 0;
